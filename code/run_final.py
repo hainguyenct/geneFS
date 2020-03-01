@@ -1,6 +1,6 @@
 '''
+Author: Tinh Dao dcongtinh@gmail.com
 Use Deepmg
-Created: 21/02/2020
 '''
 
 import os
@@ -23,8 +23,8 @@ scale_mode = 'qtf'
 models = ['fc_model', 'model_cnn']
 colormaps = ['gray', 'rainbow']
 type_emb = 'fills'
-
 cnt = 0
+
 def executeCommand(__command__):
     global cnt
     cnt += 1
@@ -35,24 +35,25 @@ def executeCommand(__command__):
     os.system('say Done %d' % cnt)
     # print(__command__ + '\n')
 
-start_time = time.time()
-time_start = time.ctime()
-for model_v in models:
-    for colormap in colormaps:
-        for dataset_name in dataset:
-            res_folder = '%s/experiment/results/%s/%s_%s%d_10_%s%s_nb%d_auy_%s/' % (machine_path, model_v, scale_mode, algo_redu, new_dim, type_emb, type_bin, num_bin, colormap)   # Result folder
-            img_folder = '%s/experiment/images/%s/%s_%s%d_10_%s%s_nb%d_auy_%s/' % (machine_path, model_v, scale_mode, algo_redu, new_dim, type_emb, type_bin, num_bin, colormap)    # Image folder
+if __name__ == '__main__':
+    start_time = time.time()
+    time_start = time.ctime()
+    for model_v in models:
+        for colormap in colormaps:
+            for dataset_name in dataset:
+                res_folder = '%s/experiment/results/%s/%s_%s%d_10_%s%s_nb%d_auy_%s/' % (machine_path, model_v, scale_mode, algo_redu, new_dim, type_emb, type_bin, num_bin, colormap)   # Result folder
+                img_folder = '%s/experiment/images/%s/%s_%s%d_10_%s%s_nb%d_auy_%s/' % (machine_path, model_v, scale_mode, algo_redu, new_dim, type_emb, type_bin, num_bin, colormap)    # Image folder
 
-            command = 'python3 %s --save_para y --original_data_folder %s --data_name %s --run_time %d --algo_redu %s --new_dim %d --model %s --auto_v y --parent_folder_results %s --parent_folder_img %s --scale_mode %s --type_bin %s --num_bin %d --type_emb %s -z 255 --colormap %s' % (file_run, path_data, dataset_name, run_time, algo_redu, new_dim, model_v, res_folder, img_folder, scale_mode, type_bin, num_bin, type_emb, colormap)
-            if colormap == 'gray':      # Gray image
-                command += ' --channel 1'
-            else:                       # Color image
-                command += ' --channel 3 --preprocess_img vgg16'
-            executeCommand(command)
-            os.system('python3 %s -i %s -o %s' % (file_read_results, res_folder, res_folder))
-            exit()
+                command = 'python3 %s --save_para y --original_data_folder %s --data_name %s --run_time %d --algo_redu %s --new_dim %d --model %s --auto_v y --parent_folder_results %s --parent_folder_img %s --scale_mode %s --type_bin %s --num_bin %d --type_emb %s -z 255 --colormap %s' % (file_run, path_data, dataset_name, run_time, algo_redu, new_dim, model_v, res_folder, img_folder, scale_mode, type_bin, num_bin, type_emb, colormap)
+                if colormap == 'gray':      # Gray image
+                    command += ' --channel 1'
+                else:                       # Color image with preprocessing vgg16
+                    command += ' --channel 3 --preprocess_img vgg16'
+                executeCommand(command)
+                os.system('python3 %s -i %s -o %s' % (file_read_results, res_folder, res_folder))
 
-print("Training dataset use [%s] at %s\n.\n.\n." % (algo_redu.upper(), time_start))
-print("Totsl run-time: %f seconds" % (end_time - start_time))
-os.system('say "Your experiment has finished. Please collect your results"')
-print(cnt)
+    end_time = time.time()
+    print("Training dataset use [%s] at %s\n.\n.\n." % (algo_redu.upper(), time_start))
+    print("Total run-time: %f seconds" % (end_time - start_time))
+    os.system('say "Your experiment has finished. Please collect your results"')
+    print(cnt)
