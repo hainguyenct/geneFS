@@ -1,6 +1,6 @@
 '''
 Author: Tinh Dao dcongtinh@gmail.com
-Use Deepmg
+Original gene family data is filtered by feature selection (Perceptron Weight Based Filter) and after that is generating images (gray/color image) from the new set of selected features before fetching into a learning architecture like Linear Regression (FC) or CNN2D
 '''
 
 import os
@@ -12,10 +12,10 @@ dataset = ['cirgene', 'colgene', 'ibdgene', 'obegene', 't2dgene', 'wt2dgene'] # 
 ROOT = '/Users/dcongtinh'
 path_data = ROOT + '/Downloads/data/'                                   # For my macbook
 machine_path = ROOT + '/gene-abundance'                                 # For my macbook
-file_run = ROOT +'/gene-abundance/subdeepmg/__main__.py'                # Use package deepmg to modify
-file_read_results = ROOT +'/gene-abundance/subdeepmg/read_results.py'   # Use package deepmg to modify
-algo_redu = 'pwbf' # Perceptron Weight Based Filter
-new_dim = 576   # Image 32x32 pixels
+file_run = ROOT +'/gene-abundance/subdeepmg/__main__.py'                # Use package deepmg
+file_read_results = ROOT +'/gene-abundance/subdeepmg/read_results.py'   # Use package deepmg
+algo_redu = 'pwbf'                                                      # Perceptron Weight Based Filter
+new_dim = 576                                                           # Image 32x32 pixels
 run_time = 10
 num_bin = 10
 type_bin = 'eqf'
