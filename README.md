@@ -5,9 +5,9 @@ Advancements in machine learning in general and in deep learning in particular h
 performance level.
 
 If the work can help you, please cite our work at: 
-```
-Hai Thanh Nguyen, Tai Tan Phan, Tinh Cong Dao, Thao Minh Nguyen Phan, Phuc Vinh Dang Ta, Cham Ngoc Thi Nguyen, Ngoc Huynh Pham, Hiep Xuan Huynh. Gene Family Abundance Visualization based on Feature Selection Combined Deep Learning to Improve Disease Diagnosis. Journal of Engineering and Technological Sciences. ISSN: 2337-5779. Vol. 53 Issue 1, pp 99-115. 2021. DOI: https://doi.org/10.5614/j.eng.technol.sci.2021.53.1.9
-```
+
+_Hai Thanh Nguyen, Tai Tan Phan, Tinh Cong Dao, Thao Minh Nguyen Phan, Phuc Vinh Dang Ta, Cham Ngoc Thi Nguyen, Ngoc Huynh Pham, Hiep Xuan Huynh. Gene Family Abundance Visualization based on Feature Selection Combined Deep Learning to Improve Disease Diagnosis. Journal of Engineering and Technological Sciences. ISSN: 2337-5779. Vol. 53 Issue 1, pp 99-115. 2021. DOI: https://doi.org/10.5614/j.eng.technol.sci.2021.53.1.9_
+
 for bib file citation:
 ```
 @article{nguyen_gene_2021,
